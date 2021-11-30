@@ -49,6 +49,7 @@ url: `http://studenti.sum.ba/projekti/rwa/2022/gX` (s tim da je X broj grupe)
 - Nakon spajanja na server kucamo `git clone ime_repozitorija`
 - Zatim brisemo stari public pomocu `rm -rf public` ( -rf su flagovi r i f, r oznacava rekurzivno brisanje, obavezno kad brisemo mape, a f oznacava force brisanje odnosno)
 - Zatim pravimo simbolicki link na nas repozitorij pomocu `ln -s ime_repozitorija public`
+- Promjena grupe korisnika na www-data, jer je na serveru apache i www-data treba biti grupa na public-u `chgrp -R www-data public`
 - Ako ste vec koristili neki framework i imate public mapu u vasem repozitoriju, ili build mapu(dist), linkate na tu mapu npr. `ln -s ime_repozitorija/public public`
 
 ## Korisni linkovi
