@@ -15,7 +15,7 @@ use Inertia\Inertia;
 |
 */
 
-URL::forceRootUrl('https://studenti.sum.ba/projekti/rwa/2022/g0');
+\URL::forceRootUrl('https://studenti.sum.ba/projekti/rwa/2022/g0');
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
