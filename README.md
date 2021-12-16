@@ -1,6 +1,6 @@
-# Programiranje za internet
+# Razvoj web aplikacija
 
-Repozitorij materijala s vježbi kolegija programiranje za internet 2021./2022.
+Repozitorij materijala s vježbi kolegija razvoj web aplikacija 2021./2022.
 
 ## Upute za izradu laravel aplikacije (lokalno)
 
