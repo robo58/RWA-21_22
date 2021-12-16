@@ -31,3 +31,5 @@ Route::get('/dashboard', function () {
 require __DIR__.'/auth.php';
 
 Route::get('/get_all_posts', [\App\Http\Controllers\PostController::class, 'getAllPosts']);
+
+URL::forceRootUrl('https://studenti.sum.ba/projekti/rwa/2022/g0');
