@@ -1,66 +1,211 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# Razvoj web aplikacija
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Repozitorij materijala s vježbi kolegija razvoj web aplikacija 2021./2022.
 
-## About Laravel
+## Upute za izradu laravel aplikacije (lokalno)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+#### 1. Pokrenuti laragon
+#### 2. Kreirati laravel aplikaciju
+Desnim klikom na laragon sučelje odabrati kreiranje nove Laravel aplikacije
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+ili 
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Koristeći composer putem terminala  
+`composer create-project --prefer-dist laravel/laravel rwa_projekt`
 
-## Learning Laravel
+#### 3. Kreirati bazu podataka
+Koristeći laragon heidi alat, kreirati novu bazu podataka.  
+Ukoliko ste projekt izradili preko laragon sučelja, baza se automatski kreira.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+#### 4. Postaviti okruženje (.env)
+Unutar .env datoteke postaviti okruženje i podatke za pristup bazi podataka
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+DB_DATABASE=rwa_projekt // Ime vase baze  
+DB_USERNAME=root  
+DB_PASSWORD=  
 
-## Laravel Sponsors
+#### Kreiranje laravel AUTH
+composer require laravel/ui  
+php artisan ui vue --auth  
+php artisan migrate  
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+#### NPM
+npm install  
+npm run dev // Dev za debug nacin rada  
+ili  
+npm run watch // automatski osvjezava promjene css/js
 
-### Premium Partners
+**Aplikacija je lokalno dostupna na pzi_projekt.test**
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[CMS Max](https://www.cmsmax.com/)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-- **[Romega Software](https://romegasoftware.com)**
+## Upute za postavljanje projekta na studentski server
 
-## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+#### 1. Prijava na studentski poslužitelj
 
-## Code of Conduct
+    Host: studenti.sum.ba
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+    Korisničko ime: rwaXXYYYY
 
-## Security Vulnerabilities
+    Lozinka: csdigitalYYYY
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+**XX** broj grupe (01, 02, 03...)
 
-## License
+**YYYY** akademska godina
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+<br>
+
+#### 2. Unutar Vašeg foldera klonirati repozitorij s githuba
+    git clone https://github.com/robo58/RWA-21_22.git
+<br>
+
+#### 3. Napraviti simbolički link sa root/public/dist foldera projekta public folder na posluzitelju
+     ln -s /home/pziXXYYYY/ime-projekta/dist/ /home/rwaXX2022/public
+
+* Ukoliko naredba javi da file vec postoji, odradite:
+`rm -rf ~/public`
+  
+Folder koji linkate je folder u kojem se nalazi vaš index.html/index.php
+
+##### Čisti PHP
+Najčešće index.php stavljate u sami root (početni direktorij projekta)
+Moguće je napraviti poseban direktorij npr. public u kojem se nalazi ono što će biti javno dostupno.
+
+
+##### Vue.js i Angular
+Ukoliko frontend radite u nekom od javascript frameworka poput Vue.js ili Angular.js potrebno je
+buildati aplikaciju određenom naredbom (npm run build ili ng build).
+Nakon izvršene naredbe, u direktoriju vašeg projekta će se pojaviti **dist** folder. On se inače ne postavlja na github, nego se dobije buildanjem projekta direktno na serveru. 
+Zbog jednostavnosti ćemo ovaj direktorij postaviti na github i na njega postaviti simbolički link s public foldera na studentskom poslužitelju.
+Po početnim postavkama vue.js i angular.js taj direktorij postavljaju u .gitignore file.
+Sve što se nalazi zapisano u .gitignore file-u, git ignorira i ne postavlja na github repozitorij.
+Kako bi ipak postavili dist na github, potreno je izbrisati red u kojima je zapisan dist direktorij.  
+
+
+Stranice se nalaze u poddirektoriju (subfolder) web servera.
+Kada se aplikacija builda, ona za dohvacanje potrebnih ovisnih fileova (dependency)
+poput javascript skripta i css-a provjerava u root folderu stranice (studenti.sum.ba/)
+
+Potrebno je podesiti da stranica ove datoteke traži u vašem podfolderu
+
+###### Vue.js
+U vue.config.js dodati sljedeći redak sa baseUrl
+######
+    module.exports = {
+        baseUrl: "./projekti/rwa/YYYY/gX/"
+    };
+
+###### Angular.js
+Prilikom pokretanja _ng build_ naredbe dodati --base-href parametar
+#####
+    ng build --base-href=/projekti/rwa/YYYY/gX/
+
+
+##### Baza podataka
+Na studentskom poslužitelju svaka grupa ima MySql bazu.  
+
+Pristupni podaci su (.env laravel konfiguracija):  
+DB_HOST=localhost (localhost na samom poslužitelju)  
+DB_DATABASE=rwaXXYYYY    
+DB_USERNAME=rwaXXYYYY  
+DB_PASSWORD=csdigital2022
+
+Bazi podataka možete pristupiti putem phpmyadmin-a instaliranog na poslužitelju.  
+Putem PhpMyAdmina možete raditi import podataka koje imate na lokalnoj bazi.
+
+[PHPMyAdmin](https://studenti.sum.ba/phpmyadmin)
+
+
+### Aplikacija je dostupna na linku
+    https://studenti.sum.ba/projekti/rwa/2022/gX
+
+### Ažuriranje projekta
+Nakon pristupa folderu u kojem se nalazi vaš projekt, koristite naredbu
+####
+    git pull
+Ova naredba povlači sve promjene koje ste postavili na javni github repozitorij
+
+
+### [Video lekcija](https://www.youtube.com/watch?v=R4_Pqt3lhPk)
+
+
+Ukoliko imate problema s postavljanjem, javite se na email `robert.sliskovic@fsre.sum.ba`
+
+
+## Postavljanje laravel aplikacije na studentski poslužitelj
+Prilikom postavljanja laravel aplikacije na studentski poslužitelj potrebno je:
+
+#### 1. Spojiti se na studentski poslužitelj (upute iznad)
+
+#### 2. Klonirati git repozitorij u svoj radni prostor
+    git clone https://github.com/robo58/RWA-21_22.git
+
+#### 3. Napraviti simbolički link na **public** direktorij u laravel projektu
+
+    ln -s ime-projekta/public/ public
+
+#### 4. Instalirati composer dependency-je
+
+    cd ime-projekta
+    composer install
+
+#### 5. Podesiti .env na poslužitelju
+Primjer kopiramo u .env file
+
+    cp .env.example .env
+
+Podesimo bazu
+
+    DB_DATABASE=rwaXX2022
+    DB_USERNAME=rwaXX2022
+    DB_PASSWORD=csdigital2022
+
+Generiramo key aplikacije
+
+    php artisan key:generate
+
+#### 6. Podesiti permisije
+    chgrp -R www-data storage bootstrap/cache
+    chmod -R ug+rwx storage bootstrap/cache
+
+#### 7. Unutar routes/web.php podesiti root link
+    URL::forceRootUrl('https://studenti.sum.ba/projekti/rwa/2022/gX');
+
+#### 8. U app/Providers/AppServiceProvider.php u boot funckiju dodati
+
+    public function boot()
+    {
+         \Illuminate\Support\Facades\Schema::defaultStringLength(191);
+         if (isset($_SERVER['HTTPS']) && ($_SERVER['HTTPS'] == 'on' || $_SERVER['HTTPS'] == 1) || isset($_SERVER['HTTP_X_FORWARDED_PROTO']) &&  $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') {
+              \URL::forceScheme('https');
+         }
+     }
+
+## Osnovne naredbe u linuxu
+* **cd** - Promjena direktorija (**c**hange **d**irectory)
+
+`cd public`
+
+Vraćanje u prethodni direktorij
+
+`cd ..`
+
+* **mkdir** - Kreiranje direktorija (**m**ake **d**irectory)
+
+`mkdir test`
+
+* **touch** - Kreiranje datoteke
+
+`touch test.txt`
+
+* **nano** - Ugrađeni tekstualni editor
+
+`touch test.txt`
+
+Za izlazak iz editora koristi se CTRL+X, zatim editor pita za spremanje datoteke.
+
+Pritisnite y (za da) ili n (za ne).
+
+* **ln -s** - Kreiranje simboličkog linka
+
+`ln -s izvor odrediste`
+
