@@ -11,4 +11,13 @@ class PostController extends Controller
     {
         return Post::all();
     }
+
+    public function createPost(Request $request)
+    {
+        if(!Auth::user()->can('create-posts')){
+            return abort(422,['message'=> 'Nemate dozvolu.']);
+        }
+
+        return Post::all();
+    }
 }
